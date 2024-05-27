@@ -37,7 +37,7 @@ rm -rf torchvision
 
 ```bash
 source .pyenv/bin/activate
-pip install -U ultralytics
+pip install -U ultralytics tabulate
 ```
 
 ### 4. onnxruntime-gpu 설치

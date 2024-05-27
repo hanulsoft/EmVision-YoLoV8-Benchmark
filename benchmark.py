@@ -82,6 +82,7 @@ def export_benchmark():
         by="Model", key=lambda x: x.map(custom_sort_key)
     )
     benchmark_df = benchmark_df.reset_index(drop=True)
+    benchmark_df.to_markdown(root_dir / f"benchmark_{dir_module_name}.md", index=False)
 
     def color_mapping_infer(s):
         idx_max = s.sort_values(ascending=False).index
@@ -144,7 +145,7 @@ def export_benchmark():
         color_mapping_map, subset=["mAP50-95"]
     ).apply(color_mapping_infer, subset=["Inference (ms/im)"])
     benchmark_df.to_html(
-        root_dir / f"benchmark_{dir_module_name}.md", index=False, justify="right"
+        root_dir / f"benchmark_{dir_module_name}.html", index=False, justify="right"
     )
     print(f"Exported benchmark to {root_dir}/benchmark_{dir_module_name}.html")
     return
@@ -155,8 +156,8 @@ def run():
     models = ["yolov8n", "yolov8s", "yolov8m", "yolov8l"]
     precisions = ["INT8", "FP16", "FP32"]
     combinations = list(product(models, precisions))
-    for model_name, dtype in combinations:
-        single_benchmark(model_name, dtype)
+    # for model_name, dtype in combinations:
+    #     single_benchmark(model_name, dtype)
     export_benchmark()
     return
 
