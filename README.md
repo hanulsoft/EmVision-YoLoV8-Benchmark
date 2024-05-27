@@ -58,7 +58,7 @@ python3 benchmark.py
 
 | 모듈명 | 제품명 |
 | --- | --- |
-| Orin Nano 4GB | **Emvision ON^4^** |
-| Orin Nano 8GB | **Emvision ON^8^** |
-| Orin NX 8GB | **Emvision OX^8^** |
-| Orin NX 16GB | **Emvision OX^16^** |
+| Orin Nano 4GB | **Emvision ON<sup>4</sup>** |
+| Orin Nano 8GB | **Emvision ON<sup>8</sup>** |
+| Orin NX 8GB | **Emvision OX<sup>8</sup>** |
+| Orin NX 16GB | **Emvision OX<sup>16</sup>** |

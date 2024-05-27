@@ -146,7 +146,7 @@ def export_benchmark():
     benchmark_df.to_html(
         root_dir / f"benchmark_{dir_module_name}.md", index=False, justify="right"
     )
-    print(f"Exported benchmark to {root_dir}/benchmark_{dir_module_name}.md")
+    print(f"Exported benchmark to {root_dir}/benchmark_{dir_module_name}.html")
     return
 
 
