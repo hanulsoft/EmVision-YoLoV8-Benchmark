@@ -1,0 +1,5 @@
+.pyenv/
+__pycache__/
+
+*_work/
+*_bench/
