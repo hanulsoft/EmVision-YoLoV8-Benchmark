@@ -156,8 +156,12 @@ def run():
     models = ["yolov8n", "yolov8s", "yolov8m", "yolov8l"]
     precisions = ["INT8", "FP16", "FP32"]
     combinations = list(product(models, precisions))
-    # for model_name, dtype in combinations:
-    #     single_benchmark(model_name, dtype)
+    for model_name, dtype in combinations:
+        try:
+            single_benchmark(model_name, dtype)
+        except Exception as e:
+            print(f"Error occured during benchmarking {model_name} {dtype}")
+            print(f"Error message: {e}")
     export_benchmark()
     return
 

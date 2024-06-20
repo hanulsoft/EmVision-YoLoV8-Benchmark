@@ -48,7 +48,6 @@ def benchmark(
             elif i == 10:
                 assert MACOS or LINUX, "TF.js export only supported on macOS and Linux"
             if name in [
-                "TensorRT",
                 "OpenVINO",
                 "CoreML",
                 "TensorFlow SavedModel",
@@ -123,6 +122,7 @@ def benchmark(
                     round(speed, 2),
                 ]
             )
+            exported_model = None  # free memory
         except Exception as e:
             if verbose:
                 assert type(e) is AssertionError, f"Benchmark failure for {name}: {e}"
@@ -130,6 +130,7 @@ def benchmark(
             y.append(
                 [name, emoji, round(file_size(filename), 1), None, None]
             )  # mAP, t_inference
+            exported_model = None  # free memory
 
     # Print results
     check_yolo(device=device)  # print system info

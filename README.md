@@ -25,8 +25,8 @@ source .pyenv/bin/activate
 python3 -m pip install --no-cache https://developer.download.nvidia.com/compute/redist/jp/v512/pytorch/torch-2.1.0a0+41361538.nv23.06-cp38-cp38-linux_aarch64.whl
 
 # TorchVision 설치
-sudo apt-get install -y git libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev python3-setuptools
-python3 -m pip install --upgrade pip packaging
+sudo apt-get install -y --upgrade git libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev python3-pip python3-setuptools python3-wheel
+python3 -m pip install --upgrade packaging
 export BUILD_VERSION=0.16.1
 git clone --branch v0.16.1 https://github.com/pytorch/vision torchvision --depth 1 && cd torchvision
 pip install -e . && cd ..
@@ -37,7 +37,8 @@ rm -rf torchvision
 
 ```bash
 source .pyenv/bin/activate
-pip install -U ultralytics tabulate
+sudo apt-get install -y python3-libnvinfer
+pip install ultralytics tabulate tensorrt
 ```
 
 ### 4. onnxruntime-gpu 설치
